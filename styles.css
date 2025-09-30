@@ -1,0 +1,362 @@
+/* --- ========================================
+                Basic Setup & Variables
+=============================================== --- */
+:root {
+    --primary-color: #c5a47e; /* A warm, golden tan */
+    --secondary-color: #333; /* Dark gray for text and backgrounds */
+    --background-color: #f4f4f4; /* Light gray for body background */
+    --light-color: #fff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--secondary-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+/* --- =================================
+            Header & Navigation
+ ======================================= --- */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--light-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+nav .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+nav .nav-links li {
+    margin-left: 1.5rem;
+}
+
+nav .nav-links a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav .nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/*=== HAMBURGER MENU ===*/
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background: var(--light-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- =============================
+            Hero Section 
+ =================================== --- */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-color);
+    padding: 0 1rem;
+}
+
+#hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--light-color);
+}
+
+#hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #a88a66;
+}
+
+/* --- ========================
+            About Section
+=============================== --- */
+
+#about { background: var(--light-color); }
+
+#about .about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+#about img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* --- ============================
+            Menu Section
+==================================== --- */
+
+#menu .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+#menu .menu-category {
+    background: var(--light-color);
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#menu .menu-category h3 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#menu .menu-item {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#menu .menu-item h4 {
+    flex-basis: 70%;
+}
+
+#menu .menu-item .price {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#menu .menu-item .description {
+    flex-basis: 100%;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* --- ==============================
+            Gallery Section
+===================================== --- */
+
+#gallery { background: var(--light-color); }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* --- ==============================
+            Contact Section
+===================================== --- */
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: var(--light-color);
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+.contact-info h3, .contact-form h3 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    width: 100%;
+}
+
+
+/* --- ================================
+                Footer
+======================================== --- */
+
+footer {
+    background: var(--secondary-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* --- ==================================
+                Responsive Design
+========================================= --- */
+
+@media(max-width: 768px) {
+
+    h2 {
+         font-size: 2rem; 
+        }
+    
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 70px; 
+        background: #333;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .nav-links li {
+        padding: 1.5rem 0;
+        margin-left: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /*"Cross" animation for the hamburger */
+    .hamburger.toggle .line:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger.toggle .line:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.toggle .line:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    #hero h1 { 
+        font-size: 2.5rem;
+     }
+
+    #hero p {
+         font-size: 1.2rem; 
+        }
+
+    #about .about-content {
+         grid-template-columns: 1fr; 
+        }
+
+    .contact-wrapper {
+         grid-template-columns: 1fr; 
+        }
+}
